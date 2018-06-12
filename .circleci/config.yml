@@ -1,0 +1,27 @@
+#
+# CircleCI 2.0
+#
+version: 2
+jobs:
+  build:
+    docker:
+      - image: hashicorp/terraform:light
+    steps:
+      - checkout
+      - run: terraform init
+      - run: terraform apply -auto-approve
+  deploy:
+    docker:
+      - image: nalbam/builder:python
+    steps:
+      - checkout
+      - run: aws s3 sync src/ s3://demo-web.saymoji.com/ --acl public-read
+
+workflows:
+  version: 2
+  lambda:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
