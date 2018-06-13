@@ -1,3 +1,3 @@
 output "url" {
-  value = "https://${var.name}.${var.domain}"
+  value = "https://demo-web.${var.domain}"
 }
