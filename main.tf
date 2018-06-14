@@ -9,7 +9,7 @@ module "demo-web" {
   source = "git::https://github.com/nalbam/terraform-aws-static-web.git"
   region = "${var.region}"
 
-  zone_id = "${module.domain.zone_id}"
+  zone_id         = "${module.domain.zone_id}"
   certificate_arn = "${module.domain.certificate_arn}"
 
   domain_name = [
