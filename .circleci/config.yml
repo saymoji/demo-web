@@ -15,7 +15,7 @@ jobs:
       - image: nalbam/builder:python
     steps:
       - checkout
-      - run: aws s3 sync src/ s3://demo-web.saymoji.com/ --acl public-read
+      - run: aws s3 sync src/ s3://dev-web.saymoji.com/ --acl public-read
 
 workflows:
   version: 2
