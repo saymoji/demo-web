@@ -13,6 +13,6 @@ module "demo-web" {
   certificate_arn = "${module.domain.certificate_arn}"
 
   domain_name = [
-    "demo-web.${var.domain}"
+    "${var.stage}-web.${var.domain}"
   ]
 }
